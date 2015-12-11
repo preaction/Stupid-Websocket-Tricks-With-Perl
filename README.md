@@ -1,11 +1,12 @@
 
 # TALK NAME
 
-This presentation covers TALK TOPIC
+This presentation covers some simple tricks with WebSockets and Perl
 
 ## Covered topics
 
-TBA
+* WebSockets in browsers
+* Using WebSockets in Mojolicious
 
 # COPYRIGHT AND LICENSE
 

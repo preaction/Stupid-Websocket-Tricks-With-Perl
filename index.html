@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8">
 
-        <title>TALK NAME</title>
+        <title>Stupid Websocket Tricks With Perl</title>
 
-        <meta name="description" content="TALK DESCRIPTION">
+        <meta name="description" content="Some tricks with websockets one can do in Perl">
         <meta name="author" content="Doug Bell">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -42,6 +42,35 @@
             <div class="slides">
 
                 <section data-markdown="slides.md" data-separator="^------\n" data-separator-vertical="^---\n"></section>
+
+                <section>
+                    <h1>Live Demo</h1>
+                    <p><small>Run <code>perl shell.pl daemon -l 'http://*:7000'</code>.<br/>Type in command and press "Run"</small></p>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+                    <script>
+                    var ws;
+                    function send_command() {
+                        if ( ws ) {
+                            ws.close();
+                            $( '#output' ).empty();
+                        }
+
+                        ws = new WebSocket( 'ws://localhost:7000/' );
+                        ws.onmessage = function ( msg ) {
+                            $( '#output' ).append( msg.data );
+                            $( '#output' ).scrollTop( $( '#output' ).prop('scrollHeight') );
+                        };
+                        ws.onopen = function () {
+                            var cmd = $( '#command' ).val();
+                            ws.send( cmd );
+                        };
+                    }
+                    </script>
+                    <input id="command" type="text"><button onclick="send_command()">Run</button>
+                    <pre id="output" style="height: 12em; overflow: scroll"></pre>
+                </section>
+
+                <section data-markdown="slides-2.md" data-separator="^------\n" data-separator-vertical="^---\n"></section>
 
             </div>
 

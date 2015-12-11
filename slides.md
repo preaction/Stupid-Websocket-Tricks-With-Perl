@@ -1,14 +1,33 @@
-# Use ------ between columns
+
+# Stupid Websocket Tricks
 
 ------
 
-# Use --- between rows
+# Why WebSockets?
 
 ---
 
-# Yay for markdown!
+# Bidirectional
 
-------
+---
 
-# Remember to add a link to the slides
+# Unlike HTTP!
+
+The Comet has Crashed!
+
+---
+
+# Message Framing
+
+---
+
+# JSON documents
+
+---
+
+# Automatic Heartbeats
+
+---
+
+# Mojolicious makes them easy!
 
